@@ -1,0 +1,7 @@
+/result/*
+/src/__pycache__/
+/src/build/
+/src/*.pyc
+/src/*.c
+/src/*.so
+/data/*
