@@ -41,7 +41,6 @@ class Trainer:
         sampling = kwargs['sampling']
         uniTrain = kwargs['uniTrain']
         modelPath = kwargs['modelPath']
-        classSize = kwargs['classSize']
         gpuid = kwargs['gpuid']
 
         self.gpuid = gpuid

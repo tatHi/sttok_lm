@@ -36,7 +36,6 @@ $ python main.py --trainText ../data/toy_train_text.txt \
                  --testLabel ../data/toy_test_label.txt \
                  --lmPath ../result/toy.lm \
                  --dumpTo ../result/ \
-                 --classSize 2 \
                  --sampling \
                  --useChar \
                  --useWord \
