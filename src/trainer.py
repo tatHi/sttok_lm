@@ -27,13 +27,10 @@ uniTrain = True
 '''
 
 class Trainer:
-    #def __init__(self, textPathes, labelPathes, dictPath, loggerPathes, segMode, useChar, useWord,
     #        useCache, clType, sampling, uniTrain, modelPath, classSize, gpuid, smoothingHyp):        
     def __init__(self, **kwargs):
-
         textPathes = kwargs['textPathes']
         labelPathes = kwargs['labelPathes']
-        dictPath = kwargs['dictPath']
         loggerPathes = kwargs['loggerPathes']
         self.dumpPath = kwargs['dumpPath']
         segMode = kwargs['segMode']
@@ -61,7 +58,6 @@ class Trainer:
                                    labelPathes=labelPathes,
                                    segMode=segMode,
                                    modelPath=modelPath,
-                                   dictPath=dictPath,
                                    padding=False)
 
         # set smoothingHyp
@@ -73,7 +69,7 @@ class Trainer:
         charEmbedSize = 30
         wordEmbedSize = 100
         hidSize = 200
-        outSize = classSize
+        outSize = self.ds.classSize
 
         self.useChar = useChar
         self.useWord = useWord

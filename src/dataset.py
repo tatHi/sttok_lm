@@ -30,12 +30,8 @@ class Dataset:
 
         self.segMode = segMode
 
-        ### set dict ###
-        if dictPath is None:
-            data = [line.strip() for line in open(textPath) if line.strip()]
-            self.char2id, self.id2char = dictMaker.getDict(data)
-        else:
-            self.char2id, self.id2char = pickle.load(open(dictPath,'rb'))
+        ### set char dict ###
+        self.char2id, self.id2char = dictMaker.getDict(self.data[0])
        
         ### set word dict when segMode is dict###
         if segMode=='dict':
@@ -45,6 +41,8 @@ class Dataset:
         ### set label ###
         if labelPathes:
             self.labels = [self.getLabel(labelPath) for labelPath in labelPathes]
+            self.classSize = len(set(self.labels[0]))
+            print('class size:', self.classSize)
 
         self.idData = [self.getIdData(d, padding) for d in self.data]
 

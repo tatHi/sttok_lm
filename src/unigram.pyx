@@ -224,7 +224,7 @@ class UnigramLM:
         
         return segedLine
 
-    # warp
+    # wrap
     def EncodeAsPieces(self, line):
         return self.encodeSentence(line, sampling=False)
 

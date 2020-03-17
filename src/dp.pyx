@@ -21,6 +21,7 @@ def segment(str sentence, uniLM, int maxL, bint sampling, str segMarker=' '):
         if 0<i:
             segedLine.append(segMarker)
         alpha = unigramDP(line, uniLM, maxL)
+
         ls = unigramSampling(alpha, not sampling)
         
         flag = 0
@@ -62,11 +63,16 @@ cdef list unigramSampling(np.ndarray alpha, bint opt=False):
     indiceList = []
     flag = 0
     while flag<size:
-        dist = alpha[flag]/sum(alpha[flag])
-        if opt:
-            indice = np.argmax(dist)
+        sa = sum(alpha[flag])
+        if sa==0:
+            indice = 0
         else:
-            indice = np.random.choice(len(dist),1,p=dist)[0]
+            dist = alpha[flag]/sa
+            if opt:
+                indice = np.argmax(dist)
+            else:
+                indice = np.random.choice(len(dist),1,p=dist)[0]
+
 
         indiceList.append(indice+1)
         flag += indiceList[-1]
