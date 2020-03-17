@@ -1,5 +1,6 @@
 # Stochastic Tokenization with a Language Model for Neural Text Classification
 WIP
+
 https://www.aclweb.org/anthology/P19-1158.pdf
 
 # requirements
