@@ -1,5 +1,6 @@
 # Stochastic Tokenization with a Language Model for Neural Text Classification
 WIP
+https://www.aclweb.org/anthology/P19-1158.pdf
 
 # requirements
 - Chainer 5.0 <
@@ -33,6 +34,7 @@ $ python main.py --trainText ../data/toy_train_text.txt \
                  --validLabel ../data/toy_valid_label.txt \
                  --testText ../data/toy_test_text.txt \
                  --testLabel ../data/toy_test_label.txt \
+                 --lmPath ../result/toy.lm \
                  --dumpTo ../result/ \
                  --classSize 2 \
                  --sampling \
@@ -42,6 +44,9 @@ $ python main.py --trainText ../data/toy_train_text.txt \
                  --uniTrain \
                  --segMode uni \
                  --clType dan \
-                 --smoothingHyp 1 \
                  --gpuId 0
 ```
+
+# config
+Some parameters are not specified by arguments, but `config.py`.
+

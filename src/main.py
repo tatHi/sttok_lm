@@ -19,7 +19,6 @@ parser.add_argument('--useCache', action='store_true')
 parser.add_argument('--uniTrain',action='store_true')
 parser.add_argument('--segMode', default='uni', choices=['uni','sp','char','dict'])
 parser.add_argument('--clType', default='dan', choices=['lstm','bilstm','dan','attn'])
-parser.add_argument('--smoothingHyp', type=int, default=1)
 parser.add_argument('--spSize', type=int, default=8000)
 parser.add_argument('--gpuId',type=int)
 parser.add_argument('--dumpModels', action='store_true')
@@ -53,6 +52,5 @@ tr = trainer.Trainer(textPathes=textPathes,
                      uniTrain=args.uniTrain,
                      modelPath=args.lmPath,
                      classSize=args.classSize,
-                     gpuid=args.gpuId,
-                     smoothingHyp=args.smoothingHyp)
+                     gpuid=args.gpuId)
 tr.train()

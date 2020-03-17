@@ -43,7 +43,6 @@ class Trainer:
         modelPath = kwargs['modelPath']
         classSize = kwargs['classSize']
         gpuid = kwargs['gpuid']
-        smoothingHyp = kwargs['smoothingHyp']  
 
         self.gpuid = gpuid
         if gpuid >= 0:
@@ -62,9 +61,9 @@ class Trainer:
 
         # set smoothingHyp
         if segMode=='uni':
-            self.ds.segmenter.alpha = smoothingHyp
-            self.ds.segmenter.bigramLM.beta = smoothingHyp
-            self.ds.segmenter.bigramLM.gamma = smoothingHyp
+            self.ds.segmenter.alpha = config.alpha
+            self.ds.segmenter.bigramLM.beta = config.beta
+            self.ds.segmenter.bigramLM.gamma = config.gamma
 
         charEmbedSize = 30
         wordEmbedSize = 100

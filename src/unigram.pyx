@@ -179,7 +179,7 @@ class UnigramLM:
                 self.addSentence(i)
 
             print('epoch %d done'%epoch)
-            for i in range(10):
+            for i in range(min(10, len(self.segedData))):
                 print('_'.join(self.segedData[i]))
 
             if (epoch+1)%100==0:
