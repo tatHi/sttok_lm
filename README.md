@@ -22,6 +22,8 @@ $ python unigramTrain.py -i ../data/toy_train_text.txt \
                          -e 100
 ```
 Note that the option `-e` or `--epoch` should be more than 100 because the unsupervised training with Gibbs sampling requires many updating.
+This training takes much long time when using the huge corpus.
+The following process, the main part of our method, can run without this unsupervised training because it initializes the language model randomely when you don't specify anything.
 
 # run trainer with updating the language model
 Running `main.py` with following options trains the neural text classifier and the language model.
@@ -36,7 +38,7 @@ $ python main.py --trainText ../data/toy_train_text.txt \
                  --testText ../data/toy_test_text.txt \
                  --testLabel ../data/toy_test_label.txt \
                  --lmPath ../result/toy.lm \
-                 --dumpTo ../result/ \
+                 --dumpTo ../result/res_toy/ \
                  --sampling \
                  --useChar \
                  --useWord \
